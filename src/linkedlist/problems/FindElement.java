@@ -25,7 +25,7 @@ public class FindElement {
 	public Node getNthToLast(Node head, int n){
 		Node first = head;
 		Node second = head;
-		
+
 		for(int i=0;i<n;i++){
 			first = first.getNext();
 		}
