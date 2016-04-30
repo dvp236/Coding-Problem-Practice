@@ -1,5 +1,6 @@
 package strings.problems;
 
-public class CustomSerialize {
+import java.io.*;
+public class CustomSerialize implements Serializable {
 
 }
