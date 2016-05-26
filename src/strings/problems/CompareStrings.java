@@ -12,7 +12,7 @@ public class CompareStrings {
 
 	//This method takes two strings and returns true if they are anagram
 	//Time Complexity of the algorithm is O(n)
-	public boolean isAnagram(String s1,String s2){
+	public static boolean isAnagram(String s1,String s2){
 		//null check
 		if(s1==null || s2==null){
 			System.out.println("null string");
@@ -74,5 +74,5 @@ public class CompareStrings {
 		}
 		return true;
 	}
-
+	
 }
