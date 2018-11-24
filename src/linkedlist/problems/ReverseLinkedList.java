@@ -21,18 +21,19 @@ public class ReverseLinkedList {
 		return prev;
 	}
 	
-	public static Node rev2(Node head){
-		Node prev = null;
+	
+	public static Node revPrac(Node head) {
 		Node curr = head;
-		while(curr != null){
-			Node temp = curr.next;
+		Node prev = null;
+		while(curr != null) {
+			//1->2->3->4
+			Node next = curr.next;
 			curr.next = prev;
 			prev = curr;
-			curr = temp;
-		}
+			curr = next;
+		} 
 		return prev;
 	}
-	
 	public static void main(String[] args){
 		Node head = new Node(1);
 		head.next = new Node(2);
@@ -41,11 +42,13 @@ public class ReverseLinkedList {
 		
 		printList(head);
 		
-		Node rhead = reverse(head);
-		printList(rhead);
-		
-		Node rh = rev2(head);
-		
-		printList(rh);
+//		Node rhead = reverse(head);
+//		printList(rhead);
+//		
+//		Node rh = rev2(head);
+//		
+//		printList(rh);
+		Node rev = revPrac(head);
+		printList(rev);
 	}
 }

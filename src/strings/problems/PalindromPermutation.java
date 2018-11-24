@@ -9,10 +9,10 @@ package strings.problems;
 public class PalindromPermutation {
 	//Time Complexity O(n)
 	public boolean isPalindromPermutation(String st){
-		//check if length of string is odd 
-		if(st.length()%2==0){
-			return false;
-		}
+//		//check if length of string is odd 
+//		if(st.length()%2==0){
+//			return false;
+//		}
 		
 		//counterOdd increments when character is encountered first time
 		//and decrements by 1 when it encounters the character again

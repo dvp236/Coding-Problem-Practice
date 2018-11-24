@@ -55,13 +55,13 @@ public class getAllAnagrams {
 	}
 	
 	public static void main(String[] args){
-		String s = "abc";
-		/*ArrayList<String> list;
+		String s = "aac";
+		ArrayList<String> list;
 		list = getAnagrams(s);
 		for(String a : list){
 			//if(a.length() == s.length())
 			System.out.println(a);
-		}*/
+		}
 		//getAnagrams2(s);
 	}
 }

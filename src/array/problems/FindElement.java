@@ -11,7 +11,7 @@ public class FindElement {
 	
 	
 	/**
-	 * Time complexity O(log(n)). finds only one element that gets caught first
+	 * Time complexity O(log(n)). finds only one element that gets caught first. Works when elements are distinct.
 	 * @param a the ascending array 
 	 * @return returns index of perfect element where {@code a[i] = i}
 	 */
@@ -35,6 +35,38 @@ public class FindElement {
 	}
 	
 	/**
+	 * TimeComplexity: WorstCase- O(N). This Method finds perfect element from the ascending array that may contain 
+	 * duplicate entries of elements. This method uses modified version of binary search.
+	 * @param a the ascending array
+	 * @return returns the index of element where {@code a[i] == i}
+	 */
+	public int findPerfectElementDuplicateAllowedArray(int[] a) {
+		return findPerfectDuplicateHelper(a, 0, a.length - 1);
+	}
+	//helper method
+	public int findPerfectDuplicateHelper(int[] a, int start, int end) {
+		if (end < start) return -1;
+		int midIndex, midValue;
+		midIndex = (start + end) / 2;
+		midValue = a[midIndex];
+		
+		//if a[i] == i, return it
+		if (midValue == midIndex) return midIndex;
+		
+		int leftIndex = Math.min(midIndex-1, midValue);
+		//search left part
+		int left = findPerfectDuplicateHelper(a, start, leftIndex);
+		//return if perfect index found
+		if(left != -1) return left;
+		
+		//search right part
+		int rightIndex = Math.max(midIndex + 1, midValue);
+		int right = findPerfectDuplicateHelper(a, rightIndex, end);
+		//return perfect element or -1 if not found
+		return right;
+	}
+	
+	/**
 	 * Time complexity O(n). find all such elements where a[i] = i
 	 * @param a the ascending array 
 	 * @return an ArrayList of all the elements where {@code a[i] = i}
@@ -53,10 +85,13 @@ public class FindElement {
 	 * For the purpose of unit testing
 	 */
 	public static void main(String[] args) {
-		int[] a = new int[] {1,1,5,4,3,4,5};
+		int[] a = new int[] {1,2,8,8,8,8,8,8,8,8,8,8,8,88};
+		
+		
 		
 		FindElement search = new FindElement();
 		System.out.println(search.findPerfectElement(a));
+		System.out.println(search.findPerfectElementDuplicateAllowedArray(a));
 	}
 
 }
