@@ -21,8 +21,8 @@ public class MaxSumPathBinTree {
 	
 	public int maxSumNodeToNode() {
 		//int res = 0;
-		ArrayList<Integer> resA = new ArrayList<>();
-		resA.add(0);
+//		ArrayList<Integer> resA = new ArrayList<>();
+//		resA.add(0);
 		Result res = new Result();
 		res.val = 0;
 		maxSumNodeToNode(root, res);

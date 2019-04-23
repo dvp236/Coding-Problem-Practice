@@ -1,5 +1,6 @@
 package strings.problems;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -73,6 +74,33 @@ public class CompareStrings {
 			}
 		}
 		return true;
+	}
+	
+	//expensive but concise
+	//time complexity - O(nlogn) - n is length of bigger string
+	public static boolean isAnagram3(String s1, String s2) {
+		//null check
+		if(s1==null || s2==null){
+			System.out.println("null string");
+			return false;
+		}
+		//check if length of both String are same
+		if(s1.length() != s2.length()){
+			return false;
+		}
+			
+		char[] c1 = s1.toCharArray();
+		char[] c2 = s2.toCharArray();
+		
+		Arrays.sort(c1); Arrays.sort(c2);
+		String sorteds1 = new String(c1);
+		String sorteds2 = new String(c2);
+		
+		return sorteds1.equals(sorteds2);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(isAnagram3("art", "tar"));
 	}
 	
 }

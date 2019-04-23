@@ -37,7 +37,7 @@ public class LowestCommonAncestorBinTree {
 		
 		root.right.left = new TreeNode(3);
 		root.right.right = new TreeNode(1);
-		System.out.println(LCA(root,2,22));
+		System.out.println(LCA(root,2,262));
 		
 	}
 }

@@ -47,6 +47,35 @@ public class MaxSubArray {
 		}
 		return maxSoFar;
 	}
+	
+	public static int kMaxSubArray1(int[] a) {
+		if (a.length == 0 || a == null) {
+			return 0;
+		}
+		int _start=0, start = 0, end = 0;
+		int maxSoFar =0;
+		int maxEndingHere = a[0];
+		//we can also use array dp[] which keeps max till i in dp[i]. but that takes extra memory
+		//can be used if use case demand that.
+		for (int i = 1; i < a.length; i++) {
+			//handling negative
+			//maxEndingHere = Math.max(a[i], maxEndingHere + a[i]);
+			if(a[i] > maxEndingHere + a[i]) {
+				_start = i;
+				maxEndingHere  = a[i];
+			} else {
+				maxEndingHere += a[i];
+			}
+			
+			if (maxEndingHere > maxSoFar) {
+				maxSoFar = maxEndingHere;
+				start = _start;
+				end = i;
+			}
+		}
+		System.out.println("start - "+start+" --- end -"+end);
+		return maxSoFar;
+	}
 
 	public static void main(String[] args) {
 		int[] a = new int[] {-8,-6,-7,2,3,4,1,-9,19,-1};
@@ -54,6 +83,7 @@ public class MaxSubArray {
 
 		System.out.println(maxSubArray(a, 0, a.length - 1));
 		System.out.println(kMaxSubArray(b));
+		System.out.println(kMaxSubArray1(b));
 
 	}
 
